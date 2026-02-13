@@ -63,19 +63,109 @@ button{
   box-shadow:0 0 20px #ff7eb3;
   transition:.3s;
 }
+button:hover{transform:s<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.I.M.B. IX Friendship Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  font-family:Poppins;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+
+  background: linear-gradient(-45deg,#ffd6e0,#ffe6cc,#e6ccff,#ccf2ff);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* floating emojis */
+.emoji{
+  position:fixed;
+  font-size:20px;
+  animation:float 12s linear infinite;
+  opacity:.7;
+}
+@keyframes float{
+  from{transform:translateY(110vh) rotate(0deg);}
+  to{transform:translateY(-10vh) rotate(360deg);}
+}
+
+/* glass card */
+.card{
+  text-align:center;
+  padding:40px;
+  width:90%;
+  max-width:500px;
+  border-radius:25px;
+  backdrop-filter:blur(16px);
+  background:rgba(255,255,255,0.25);
+  box-shadow:0 0 40px rgba(255,255,255,0.5);
+  color:#333;
+}
+
+#typing{
+  font-size:28px;
+  font-weight:600;
+  min-height:40px;
+  margin-top:10px;
+}
+
+button{
+  margin-top:30px;
+  padding:15px 30px;
+  border:none;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+  background:linear-gradient(45deg,#ff7eb3,#ff758c);
+  color:white;
+  box-shadow:0 0 20px #ff7eb3;
+  transition:.3s;
+}
 button:hover{transform:scale(1.1);}
 
-/* confetti */
+/* CONFETTI EXPLOSION */
 .confetti{
   position:fixed;
-  width:10px;
-  height:10px;
-  background:red;
-  top:-10px;
-  animation:fall 5s linear forwards;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  pointer-events:none;
+  animation:explode 2s ease-out forwards, fall 4s linear forwards;
 }
+
+@keyframes explode{
+  from{
+    transform:translate(-50%,-50%) scale(0);
+    opacity:1;
+  }
+  to{
+    transform:translate(var(--x),var(--y)) scale(1.2);
+    opacity:1;
+  }
+}
+
 @keyframes fall{
-  to{transform:translateY(110vh) rotate(720deg);}
+  from{margin-top:0;}
+  to{margin-top:100vh; opacity:0;}
 }
 </style>
 </head>
@@ -89,7 +179,7 @@ button:hover{transform:scale(1.1);}
 </div>
 
 <script>
-/* floating emojis */
+/* floating hearts + sparkles background */
 const emojis=["💖","✨","💘","💝","🌟","💗"];
 for(let i=0;i<40;i++){
   let e=document.createElement("div");
@@ -112,18 +202,31 @@ function type(){
 }
 type();
 
-/* reveal message + REAL confetti explosion */
+/* reveal message + CONFETTI PARTY */
 function reveal(){
   document.querySelector(".card").innerHTML=
   "<h1>Happy Valentine's Day Besties 💌</h1>\
    <h2>Another many more years of memories to be unlocked 🥂</h2>";
 
-  for(let i=0;i<200;i++){
+  const shapes=["💖","💘","💝","✨","💗","💞"];
+
+  for(let i=0;i<180;i++){
     let c=document.createElement("div");
     c.className="confetti";
-    c.style.left=Math.random()*100+"vw";
-    c.style.backgroundColor=`hsl(${Math.random()*360},100%,60%)`;
-    c.style.animationDuration=(3+Math.random()*3)+"s";
+
+    let x=(Math.random()-0.5)*120+"vw";
+    let y=(Math.random()-0.5)*120+"vh";
+    c.style.setProperty("--x",x);
+    c.style.setProperty("--y",y);
+
+    if(Math.random()>0.5){
+      c.innerText=shapes[Math.floor(Math.random()*shapes.length)];
+      c.style.fontSize="20px";
+      c.style.background="none";
+    }else{
+      c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
+    }
+
     document.body.appendChild(c);
   }
 }
@@ -131,3 +234,5 @@ function reveal(){
 
 </body>
 </html>
+
+
