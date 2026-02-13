@@ -141,9 +141,30 @@ type();
 // Button click
 function enterPortal(){
   const card=document.getElementById("card");
-  card.innerHTML=
-    "<h1>Happy Valentine's Day Besties 💌</h1>\
-    <h2>Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>";
+  card.innerHTML=`
+    <h1 id="mainWish">Happy Valentine's Day Besties 💌</h1>
+    <h2 id="subText">Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>
+  `;
+
+  // Style the main wish line
+  const mainWish = document.getElementById("mainWish");
+  mainWish.style.fontSize = "42px";
+  mainWish.style.fontWeight = "800";
+  mainWish.style.background = "linear-gradient(90deg, #ff7eb3, #ff758c, #ffb6c1)";
+  mainWish.style.webkitBackgroundClip = "text";
+  mainWish.style.webkitTextFillColor = "transparent";
+  mainWish.style.textAlign = "center";
+  mainWish.style.marginBottom = "20px";
+  mainWish.style.letterSpacing = "2px";
+  mainWish.style.textShadow = "0 0 10px rgba(255,255,255,0.7)";
+
+  // Style the sub text
+  const subText = document.getElementById("subText");
+  subText.style.fontSize = "22px";
+  subText.style.fontWeight = "500";
+  subText.style.textAlign = "center";
+  subText.style.marginTop = "10px";
+  subText.style.color = "#333";
 
   launchConfetti();
 }
