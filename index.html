@@ -6,7 +6,7 @@
 <title>🚨 C.I.M.B. IX 💅 Friendship Portal</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 /* Body & background */
@@ -146,19 +146,17 @@ function enterPortal(){
     <h2 id="subText">Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>
   `;
 
-  // Style the main wish line
+  // Style main wish line to pop
   const mainWish = document.getElementById("mainWish");
-  mainWish.style.fontSize = "42px";
-  mainWish.style.fontWeight = "800";
-  mainWish.style.background = "linear-gradient(90deg, #ff7eb3, #ff758c, #ffb6c1)";
-  mainWish.style.webkitBackgroundClip = "text";
-  mainWish.style.webkitTextFillColor = "transparent";
+  mainWish.style.fontSize = "46px";
+  mainWish.style.fontWeight = "900";
+  mainWish.style.color = "#ff1e6c"; // hot pink/red for visibility
+  mainWish.style.textShadow = "0 0 15px rgba(255, 30, 108, 0.8), 0 0 20px rgba(255, 192, 203, 0.5)";
   mainWish.style.textAlign = "center";
   mainWish.style.marginBottom = "20px";
   mainWish.style.letterSpacing = "2px";
-  mainWish.style.textShadow = "0 0 10px rgba(255,255,255,0.7)";
 
-  // Style the sub text
+  // Style subtext
   const subText = document.getElementById("subText");
   subText.style.fontSize = "22px";
   subText.style.fontWeight = "500";
@@ -186,10 +184,5 @@ function launchConfetti(){
     }else{
       c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
     }
-    document.body.appendChild(c);
-  }
-}
-</script>
+    documen
 
-</body>
-</html>
