@@ -18,10 +18,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #333;
   background: linear-gradient(120deg, #ffd1dc, #ffb6c1, #ffc0cb, #ffe4e1);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
-  color: #333;
 }
 
 @keyframes gradientMove {
@@ -74,7 +74,7 @@ button {
   border-radius: 30px;
   font-size: 18px;
   cursor: pointer;
-  background: linear-gradient(45deg, #ff7eb3, #ff758c);
+  background: linear-gradient(45deg,#ff7eb3,#ff758c);
   color: white;
   box-shadow: 0 0 20px #ff7eb3;
   transition: 0.3s;
@@ -147,17 +147,17 @@ function enterPortal() {
     <h2 id="subText">Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>
   `;
 
-  // Make main wish line visible & pop
+  // Make main wish line pop: black font with pink glow
   const mainWish = document.getElementById("mainWish");
   mainWish.style.fontSize = "46px";
   mainWish.style.fontWeight = "900";
-  mainWish.style.color = "#ff1e6c"; // bright pink/red for contrast
-  mainWish.style.textShadow = "0 0 15px rgba(255, 30, 108, 0.9), 0 0 20px rgba(255, 192, 203, 0.6)";
+  mainWish.style.color = "#000"; // black font
+  mainWish.style.textShadow = "0 0 10px #ff7eb3, 0 0 20px #ffb6c1, 0 0 30px #ff758c";
   mainWish.style.textAlign = "center";
   mainWish.style.marginBottom = "20px";
   mainWish.style.letterSpacing = "2px";
 
-  // Subtext
+  // Subtext styling
   const subText = document.getElementById("subText");
   subText.style.fontSize = "22px";
   subText.style.fontWeight = "500";
@@ -192,3 +192,4 @@ function launchConfetti() {
 
 </body>
 </html>
+
