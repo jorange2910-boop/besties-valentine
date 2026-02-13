@@ -81,7 +81,7 @@ button:hover{ transform:scale(1.08); }
 <div id="final" class="hidden">
 <h1>CONTRACT RENEWED 🎉</h1>
 <p>
-Another many more years of memories to be unlocked 🥂<br><br>
+Many more years of memories to be unlocked 🥂<br><br>
 C.I.M.B. IX forever 💙
 </p>
 </div>
@@ -108,31 +108,49 @@ function showQuestion(){
 function showFinal(){
  document.getElementById("question").style.display="none";
  document.getElementById("final").style.display="block";
- partyTime();
+ burstConfetti();
 }
 
-/* REAL CELEBRATION 🎉✨ */
-function partyTime(){
- const emojis=["🎉","✨","🥳","💫","🎊","💥"];
- for(let i=0;i<40;i++){
-   let e=document.createElement("div");
-   e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
-   e.style.position="fixed";
-   e.style.left=Math.random()*100+"vw";
-   e.style.top="-20px";
-   e.style.fontSize=(Math.random()*20+20)+"px";
-   e.style.transition="top 3s linear, transform 3s linear";
-   document.body.appendChild(e);
-   setTimeout(()=>{ 
-       e.style.top="110vh"; 
-       e.style.transform="rotate(720deg)";
-   },50);
-   setTimeout(()=>{ e.remove(); },3000);
+/* 🎉 CONTINUOUS FLOATING EMOJIS */
+const emojis=["🎉","✨","🥳","💫","🎊"];
+setInterval(()=>{
+ let e=document.createElement("div");
+ e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+ e.style.position="fixed";
+ e.style.left=Math.random()*100+"vw";
+ e.style.top="100vh";
+ e.style.fontSize=(Math.random()*18+18)+"px";
+ e.style.transition="top 6s linear";
+ document.body.appendChild(e);
+ setTimeout(()=>{ e.style.top="-10vh"; },50);
+ setTimeout(()=>{ e.remove(); },6000);
+},500);
+
+/* 🎊 BURST CONFETTI FROM BOTTOM */
+function burstConfetti(){
+ for(let i=0;i<120;i++){
+   let conf=document.createElement("div");
+   conf.style.position="fixed";
+   conf.style.bottom="0";
+   conf.style.left=Math.random()*100+"vw";
+   conf.style.width="8px";
+   conf.style.height="14px";
+   conf.style.background="hsl("+Math.random()*360+"deg,100%,50%)";
+   conf.style.transform="rotate("+Math.random()*360+"deg)";
+   conf.style.transition="all 3s ease-out";
+   document.body.appendChild(conf);
+   setTimeout(()=>{
+      conf.style.bottom="100vh";
+      conf.style.left=(Math.random()*100)+"vw";
+      conf.style.transform="rotate(720deg)";
+   },10);
+   setTimeout(()=>{ conf.remove(); },3000);
  }
 }
 </script>
 
 </body>
 </html>
+
 
 
