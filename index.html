@@ -5,96 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🚨 C.I.M.B. IX 💅 Friendship Portal</title>
 
-<!-- Valentine-y Font -->
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  font-family: 'Baloo 2', cursive;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(120deg, #ffd1dc, #ffb6c1, #ffc0cb, #ffe4e1);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-  color: #333;
+/* Body & background */
+body{
+  margin:0;
+  height:100vh;
+  font-family:'Montserrat', sans-serif;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#333;
+  background: linear-gradient(120deg,#ffd1dc,#ffb6c1,#ffc0cb,#ffe4e1);
+  background-size:400% 400%;
+  animation:gradientMove 15s ease infinite;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
-.floating {
-  position: fixed;
-  font-size: 20px;
-  pointer-events: none;
-  opacity: 0.8;
-  animation: floatLinear linear infinite;
+/* Floating hearts + sparkles */
+.floating{
+  position:fixed;
+  font-size:20px;
+  pointer-events:none;
+  opacity:0.8;
+  animation:floatLinear linear infinite;
 }
 
-@keyframes floatLinear {
-  0% { transform: translateY(100vh) rotate(0deg); }
-  100% { transform: translateY(-10vh) rotate(360deg); }
+@keyframes floatLinear{
+  0%{transform:translateY(100vh) rotate(0deg);}
+  100%{transform:translateY(-10vh) rotate(360deg);}
 }
 
-.card {
-  position: relative;
-  text-align: center;
-  padding: 40px;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 25px;
-  backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
-  z-index: 10;
+/* Glass card */
+.card{
+  position:relative;
+  text-align:center;
+  padding:40px;
+  width:90%;
+  max-width:500px;
+  border-radius:25px;
+  backdrop-filter:blur(16px);
+  background:rgba(255,255,255,0.3);
+  box-shadow:0 0 40px rgba(255,255,255,0.5);
+  z-index:10;
 }
 
-#typing {
-  font-size: 28px;
-  font-weight: 700;
-  min-height: 40px;
-  margin-top: 10px;
+#typing{
+  font-size:28px;
+  font-weight:700;
+  min-height:40px;
+  margin-top:10px;
 }
 
-button {
-  margin-top: 30px;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 30px;
-  font-size: 18px;
-  cursor: pointer;
-  background: linear-gradient(45deg,#ff7eb3,#ff758c);
-  color: white;
-  box-shadow: 0 0 20px #ff7eb3;
-  transition: 0.3s;
+/* Button */
+button{
+  margin-top:30px;
+  padding:15px 30px;
+  border:none;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+  background:linear-gradient(45deg,#ff7eb3,#ff758c);
+  color:white;
+  box-shadow:0 0 20px #ff7eb3;
+  transition:.3s;
+  font-family:'Montserrat', sans-serif;
 }
-button:hover { transform: scale(1.1); }
+button:hover{transform:scale(1.1);}
 
-.confetti {
-  position: fixed;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  pointer-events: none;
-  animation: explode 2s ease-out forwards, fall 4s linear forwards;
-}
-
-@keyframes explode {
-  from { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-  to { transform: translate(var(--x), var(--y)) scale(1.5); opacity: 1; }
+/* Confetti */
+.confetti{
+  position:fixed;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  pointer-events:none;
+  animation:explode 2s ease-out forwards, fall 4s linear forwards;
 }
 
-@keyframes fall {
-  from { margin-top: 0; }
-  to { margin-top: 100vh; opacity: 0; }
+@keyframes explode{
+  from{transform:translate(-50%,-50%) scale(0); opacity:1;}
+  to{transform:translate(var(--x),var(--y)) scale(1.5); opacity:1;}
+}
+
+@keyframes fall{
+  from{margin-top:0;}
+  to{margin-top:100vh; opacity:0;}
 }
 </style>
 </head>
@@ -108,49 +114,49 @@ button:hover { transform: scale(1.1); }
 </div>
 
 <script>
-// Floating hearts
-const hearts = ["💖","💘","💝","✨","💗","💞"];
-for (let i = 0; i < 50; i++) {
-  let f = document.createElement("div");
-  f.className = "floating";
-  f.innerText = hearts[Math.floor(Math.random() * hearts.length)];
-  f.style.left = Math.random() * 100 + "vw";
-  f.style.fontSize = (12 + Math.random() * 24) + "px";
-  f.style.animationDuration = (8 + Math.random() * 8) + "s";
+// Floating hearts + sparkles
+const hearts=["💖","💘","💝","✨","💗","💞"];
+for(let i=0;i<50;i++){
+  let f=document.createElement("div");
+  f.className="floating";
+  f.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+  f.style.left=Math.random()*100+"vw";
+  f.style.fontSize=(12+Math.random()*24)+"px";
+  f.style.animationDuration=(8+Math.random()*8)+"s";
   document.body.appendChild(f);
 }
 
-// Typing intro
-const text = "A tiny portal for my favourite humans ❤️";
-let i = 0;
-function type() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
+// Typing animation
+const text="A tiny portal for my favourite humans ❤️";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
     i++;
-    setTimeout(type, 40);
+    setTimeout(type,40);
   }
 }
 type();
 
 // Button click
-function enterPortal() {
-  const card = document.getElementById("card");
-  card.innerHTML = `
+function enterPortal(){
+  const card=document.getElementById("card");
+  card.innerHTML=`
     <h1 id="mainWish">Happy Valentine's Day Besties 💌</h1>
     <h2 id="subText">Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>
   `;
 
-  // Main text style
+  // Main Valentine line with new gradient & shadow (fancier)
   const mainWish = document.getElementById("mainWish");
   mainWish.style.fontSize = "48px";
   mainWish.style.fontWeight = "900";
   mainWish.style.background = "linear-gradient(90deg, #ff147f, #ff69b4, #ff147f)";
   mainWish.style.webkitBackgroundClip = "text";
   mainWish.style.webkitTextFillColor = "transparent";
-  mainWish.style.textShadow = "2px 2px 6px #ff69b4, 4px 4px 10px #ff147f";
   mainWish.style.textAlign = "center";
   mainWish.style.marginBottom = "20px";
   mainWish.style.letterSpacing = "2px";
+  mainWish.style.textShadow = "2px 2px 6px #ff69b4, 4px 4px 10px #ff147f";
 
   // Subtext style
   const subText = document.getElementById("subText");
@@ -163,22 +169,22 @@ function enterPortal() {
   launchConfetti();
 }
 
-// Confetti
-function launchConfetti() {
-  const shapes = ["💖","💘","💝","✨","💗","💞"];
-  for (let i = 0; i < 200; i++) {
-    let c = document.createElement("div");
-    c.className = "confetti";
-    let x = (Math.random() - 0.5) * 150 + "vw";
-    let y = (Math.random() - 0.5) * 150 + "vh";
-    c.style.setProperty("--x", x);
-    c.style.setProperty("--y", y);
-    if (Math.random() > 0.5) {
-      c.innerText = shapes[Math.floor(Math.random() * shapes.length)];
-      c.style.fontSize = (12 + Math.random() * 20) + "px";
-      c.style.background = "none";
-    } else {
-      c.style.backgroundColor = `hsl(${Math.random() * 360},90%,60%)`;
+// Confetti explosion
+function launchConfetti(){
+  const shapes=["💖","💘","💝","✨","💗","💞"];
+  for(let i=0;i<200;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    let x=(Math.random()-0.5)*150+"vw";
+    let y=(Math.random()-0.5)*150+"vh";
+    c.style.setProperty("--x",x);
+    c.style.setProperty("--y",y);
+    if(Math.random()>0.5){
+      c.innerText=shapes[Math.floor(Math.random()*shapes.length)];
+      c.style.fontSize=(12+Math.random()*20)+"px";
+      c.style.background="none";
+    }else{
+      c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
     }
     document.body.appendChild(c);
   }
