@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Friendship Contract 2026</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+	background:#111;
+	color:white;
+	font-family: Arial, sans-serif;
+	text-align:center;
+	padding-top:10vh;
+	margin:0;
+}
+
+h1{font-size:vw;}
+h2{font-size:5vw;}
+p{font-size:4vw;color:#ccc; line-height:1.4;}
+
+button{
+	padding:3vw 6vw;
+	font-size:4vw;
+	border:none;
+	border-radius:10px;
+	background:#00c2ff;
+	color:black;
+	cursor:pointer;
+	margin:2vw;
+	font-weight:bold;
+}
+
+button:hover{ background:#00a6db; }
+.hidden{display:none;}
+#typing{border-right:3px solid white; display:inline;}
+</style>
+</head>
+
+<body>
+
+<h2>🚨C.I.M.B. IX 💅</h2>
+
+<div id="start">
+	<h1>🔐 Friendship Portal</h1>
+	<p id="typing"></p>
+	<br><br>
+	<button onclick="showQuestion()">Enter</button>
+</div>
+
+<div id="question" class="hidden">
+	<h1>Friendship Renewal Form</h1>
+	<p>Do you agree to continue this friendship for another thousand years 🤣?</P>
+	<button onclick="showFinal()">YES 🤝</button>
+	<button onclick="showFinal()">RENEW SUBSCRIPTION 🔄</button>
+<div>
+
+<div id="final" class="hidden">
+	<h1>Contract Renewed 🎉</h1>
+	<p>
+		You are officially stuck ith me.<br><br>
+		Thank you for the laughs, chaos, emotional support, bad decisions and core memories ❤️
+		<br><br>
+		Happy Best Friend Valentine 💙
+	</p>
+</div>
+
+<script>
+let text="Access to Best Friend System Detected...";
+let i=0;
+function type(){
+	if(i<text,length){
+		document,getElementById("typing").innerHTML+=text.charAt(i);
+		i++;
+		setTimeout(type,40);
+	}
+}
+type():
+
+function showQuestion(){
+	document,getElementById("start").classList.add("hidden");
+	document.getElementById("question").classList.remove("hidden");
+}
+
+function showFinal(){
+	document.getElementById("question").classList.add("hidden");
+	document.getElementById("final").classList.remove("hidden");
+	confetti();
+}
+
+
+function confetti(){
+	let num = window.innerWidth < 600 ? 100 : 150;
+	for(let i=0;i<num;i++){
+		let conf=document.createElement("div");
+		conf.style.position="fixed";
+		conf.style.left=Math.random()*100+"vw";
+		conf.style.top="-10px";
+		conf.style.width="8px";
+		conf.style.height="8px";
+		conf.style.background="hsl("+Math.random()*360+"deg,100%,50%)";
+		conf.style.opacity=Math.random();
+		conf.style.transform="rotate("Math.random()*360+"deg)";
+		conf.style.transition="top 3s linear";
+		document.body.appendChild(conf);
+		setTimeout(()=>{ conf.style.top="110vh"; },10);
+		setTimeout(()=>{ conf.remove(); },3000);
+	}
+}
+</script>
+
+</body>
+</html>
