@@ -6,101 +6,102 @@
 <title>🚨 C.I.M.B. IX 💅 Friendship Portal</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 /* Body & background */
-body{
-  margin:0;
-  height:100vh;
-  font-family:'Montserrat', sans-serif;
-  overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#333;
-  background: linear-gradient(120deg,#ffd1dc,#ffb6c1,#ffc0cb,#ffe4e1);
-  background-size:400% 400%;
-  animation:gradientMove 15s ease infinite;
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #ffd1dc, #ffb6c1, #ffc0cb, #ffe4e1);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: #333;
 }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Floating hearts + sparkles */
-.floating{
-  position:fixed;
-  font-size:20px;
-  pointer-events:none;
-  opacity:0.8;
-  animation:floatLinear linear infinite;
+.floating {
+  position: fixed;
+  font-size: 20px;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: floatLinear linear infinite;
 }
 
-@keyframes floatLinear{
-  0%{transform:translateY(100vh) rotate(0deg);}
-  100%{transform:translateY(-10vh) rotate(360deg);}
+@keyframes floatLinear {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-10vh) rotate(360deg); }
 }
 
 /* Glass card */
-.card{
-  position:relative;
-  text-align:center;
-  padding:40px;
-  width:90%;
-  max-width:500px;
-  border-radius:25px;
-  backdrop-filter:blur(16px);
-  background:rgba(255,255,255,0.3);
-  box-shadow:0 0 40px rgba(255,255,255,0.5);
-  z-index:10;
+.card {
+  position: relative;
+  text-align: center;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 25px;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+  z-index: 10;
 }
 
-#typing{
-  font-size:28px;
-  font-weight:700;
-  min-height:40px;
-  margin-top:10px;
+/* Typing text */
+#typing {
+  font-size: 28px;
+  font-weight: 700;
+  min-height: 40px;
+  margin-top: 10px;
 }
 
 /* Button */
-button{
-  margin-top:30px;
-  padding:15px 30px;
-  border:none;
-  border-radius:30px;
-  font-size:18px;
-  cursor:pointer;
-  background:linear-gradient(45deg,#ff7eb3,#ff758c);
-  color:white;
-  box-shadow:0 0 20px #ff7eb3;
-  transition:.3s;
-  font-family:'Montserrat', sans-serif;
+button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff7eb3, #ff758c);
+  color: white;
+  box-shadow: 0 0 20px #ff7eb3;
+  transition: 0.3s;
+  font-family: 'Montserrat', sans-serif;
 }
-button:hover{transform:scale(1.1);}
+button:hover { transform: scale(1.1); }
 
 /* Confetti */
-.confetti{
-  position:fixed;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  top:50%;
-  left:50%;
-  pointer-events:none;
-  animation:explode 2s ease-out forwards, fall 4s linear forwards;
+.confetti {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  animation: explode 2s ease-out forwards, fall 4s linear forwards;
 }
 
-@keyframes explode{
-  from{transform:translate(-50%,-50%) scale(0); opacity:1;}
-  to{transform:translate(var(--x),var(--y)) scale(1.5); opacity:1;}
+@keyframes explode {
+  from { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  to { transform: translate(var(--x), var(--y)) scale(1.5); opacity: 1; }
 }
 
-@keyframes fall{
-  from{margin-top:0;}
-  to{margin-top:100vh; opacity:0;}
+@keyframes fall {
+  from { margin-top: 0; }
+  to { margin-top: 100vh; opacity: 0; }
 }
 </style>
 </head>
@@ -115,48 +116,48 @@ button:hover{transform:scale(1.1);}
 
 <script>
 // Floating hearts + sparkles
-const hearts=["💖","💘","💝","✨","💗","💞"];
-for(let i=0;i<50;i++){
-  let f=document.createElement("div");
-  f.className="floating";
-  f.innerText=hearts[Math.floor(Math.random()*hearts.length)];
-  f.style.left=Math.random()*100+"vw";
-  f.style.fontSize=(12+Math.random()*24)+"px";
-  f.style.animationDuration=(8+Math.random()*8)+"s";
+const hearts = ["💖","💘","💝","✨","💗","💞"];
+for (let i = 0; i < 50; i++) {
+  let f = document.createElement("div");
+  f.className = "floating";
+  f.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+  f.style.left = Math.random() * 100 + "vw";
+  f.style.fontSize = (12 + Math.random() * 24) + "px";
+  f.style.animationDuration = (8 + Math.random() * 8) + "s";
   document.body.appendChild(f);
 }
 
 // Typing animation
-const text="A tiny portal for my favourite humans ❤️";
-let i=0;
-function type(){
-  if(i<text.length){
-    document.getElementById("typing").innerHTML+=text.charAt(i);
+const text = "A tiny portal for my favourite humans ❤️";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
     i++;
-    setTimeout(type,40);
+    setTimeout(type, 40);
   }
 }
 type();
 
-// Button click
-function enterPortal(){
-  const card=document.getElementById("card");
-  card.innerHTML=`
+// Button click: show Valentine message
+function enterPortal() {
+  const card = document.getElementById("card");
+  card.innerHTML = `
     <h1 id="mainWish">Happy Valentine's Day Besties 💌</h1>
     <h2 id="subText">Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>
   `;
 
-  // Style main wish line to pop
+  // Make main wish line visible & pop
   const mainWish = document.getElementById("mainWish");
   mainWish.style.fontSize = "46px";
   mainWish.style.fontWeight = "900";
-  mainWish.style.color = "#ff1e6c"; // hot pink/red for visibility
-  mainWish.style.textShadow = "0 0 15px rgba(255, 30, 108, 0.8), 0 0 20px rgba(255, 192, 203, 0.5)";
+  mainWish.style.color = "#ff1e6c"; // bright pink/red for contrast
+  mainWish.style.textShadow = "0 0 15px rgba(255, 30, 108, 0.9), 0 0 20px rgba(255, 192, 203, 0.6)";
   mainWish.style.textAlign = "center";
   mainWish.style.marginBottom = "20px";
   mainWish.style.letterSpacing = "2px";
 
-  // Style subtext
+  // Subtext
   const subText = document.getElementById("subText");
   subText.style.fontSize = "22px";
   subText.style.fontWeight = "500";
@@ -168,21 +169,26 @@ function enterPortal(){
 }
 
 // Confetti explosion
-function launchConfetti(){
-  const shapes=["💖","💘","💝","✨","💗","💞"];
-  for(let i=0;i<200;i++){
-    let c=document.createElement("div");
-    c.className="confetti";
-    let x=(Math.random()-0.5)*150+"vw";
-    let y=(Math.random()-0.5)*150+"vh";
-    c.style.setProperty("--x",x);
-    c.style.setProperty("--y",y);
-    if(Math.random()>0.5){
-      c.innerText=shapes[Math.floor(Math.random()*shapes.length)];
-      c.style.fontSize=(12+Math.random()*20)+"px";
-      c.style.background="none";
-    }else{
-      c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
+function launchConfetti() {
+  const shapes = ["💖","💘","💝","✨","💗","💞"];
+  for (let i = 0; i < 200; i++) {
+    let c = document.createElement("div");
+    c.className = "confetti";
+    let x = (Math.random() - 0.5) * 150 + "vw";
+    let y = (Math.random() - 0.5) * 150 + "vh";
+    c.style.setProperty("--x", x);
+    c.style.setProperty("--y", y);
+    if (Math.random() > 0.5) {
+      c.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+      c.style.fontSize = (12 + Math.random() * 20) + "px";
+      c.style.background = "none";
+    } else {
+      c.style.backgroundColor = `hsl(${Math.random() * 360},90%,60%)`;
     }
-    documen
+    document.body.appendChild(c);
+  }
+}
+</script>
 
+</body>
+</html>
