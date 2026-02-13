@@ -147,17 +147,19 @@ function enterPortal() {
     <h2 id="subText">Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>
   `;
 
-  // Make main wish line pop: black font with pink glow
+  // Main wish: strong pink gradient with glow for readability
   const mainWish = document.getElementById("mainWish");
   mainWish.style.fontSize = "46px";
   mainWish.style.fontWeight = "900";
-  mainWish.style.color = "#000"; // black font
-  mainWish.style.textShadow = "0 0 10px #ff7eb3, 0 0 20px #ffb6c1, 0 0 30px #ff758c";
+  mainWish.style.background = "linear-gradient(90deg, #ff7eb3, #ff758c, #ffb6c1)";
+  mainWish.style.webkitBackgroundClip = "text";
+  mainWish.style.webkitTextFillColor = "transparent";
   mainWish.style.textAlign = "center";
   mainWish.style.marginBottom = "20px";
   mainWish.style.letterSpacing = "2px";
+  mainWish.style.textShadow = "0 0 10px rgba(255,126,179,0.8), 0 0 20px rgba(255,117,140,0.6), 0 0 30px rgba(255,182,193,0.5)";
 
-  // Subtext styling
+  // Subtext
   const subText = document.getElementById("subText");
   subText.style.fontSize = "22px";
   subText.style.fontWeight = "500";
@@ -192,4 +194,6 @@ function launchConfetti() {
 
 </body>
 </html>
+
+
 
