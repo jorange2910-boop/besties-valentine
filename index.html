@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* Body & background */
 body{
   margin:0;
   height:100vh;
@@ -30,7 +29,6 @@ body{
   100%{background-position:0% 50%;}
 }
 
-/* Floating hearts + sparkles */
 .floating{
   position:fixed;
   font-size:20px;
@@ -44,7 +42,6 @@ body{
   100%{transform:translateY(-10vh) rotate(360deg);}
 }
 
-/* Glass card */
 .card{
   position:relative;
   text-align:center;
@@ -65,7 +62,6 @@ body{
   margin-top:10px;
 }
 
-/* Button */
 button{
   margin-top:30px;
   padding:15px 30px;
@@ -81,7 +77,6 @@ button{
 }
 button:hover{transform:scale(1.1);}
 
-/* Confetti */
 .confetti{
   position:fixed;
   width:12px;
@@ -114,7 +109,6 @@ button:hover{transform:scale(1.1);}
 </div>
 
 <script>
-// Floating hearts + sparkles
 const hearts=["💖","💘","💝","✨","💗","💞"];
 for(let i=0;i<50;i++){
   let f=document.createElement("div");
@@ -126,7 +120,6 @@ for(let i=0;i<50;i++){
   document.body.appendChild(f);
 }
 
-// Typing animation
 const text="A tiny portal for my favourite humans ❤️";
 let i=0;
 function type(){
@@ -138,7 +131,6 @@ function type(){
 }
 type();
 
-// Button click
 function enterPortal(){
   const card=document.getElementById("card");
   card.innerHTML=`
@@ -146,19 +138,18 @@ function enterPortal(){
     <h2 id="subText">Cheers to the many more years of memories to be unlocked with you guys ☺️🥂<br>C.I.M.B. IX forever 💖</h2>
   `;
 
-  // Main Valentine line with Sakura pastel gradient
+  // Sharp, darker Sakura gradient
   const mainWish = document.getElementById("mainWish");
   mainWish.style.fontSize = "48px";
   mainWish.style.fontWeight = "900";
-  mainWish.style.background = "linear-gradient(90deg, #ffd1dc, #ffb6c1, #ffe4e1)";
+  mainWish.style.background = "linear-gradient(90deg, #ff8aa2, #ff5c87, #ff4070)";
   mainWish.style.webkitBackgroundClip = "text";
   mainWish.style.webkitTextFillColor = "transparent";
   mainWish.style.textAlign = "center";
   mainWish.style.marginBottom = "20px";
   mainWish.style.letterSpacing = "2px";
-  mainWish.style.textShadow = "2px 2px 6px #ffb6c1, 4px 4px 10px #ffe4e1";
+  mainWish.style.textShadow = "1px 1px 3px rgba(0,0,0,0.2)"; // subtle for sharp contrast
 
-  // Subtext style
   const subText = document.getElementById("subText");
   subText.style.fontSize = "22px";
   subText.style.fontWeight = "500";
@@ -169,7 +160,6 @@ function enterPortal(){
   launchConfetti();
 }
 
-// Confetti explosion
 function launchConfetti(){
   const shapes=["💖","💘","💝","✨","💗","💞"];
   for(let i=0;i<200;i++){
@@ -193,3 +183,4 @@ function launchConfetti(){
 
 </body>
 </html>
+
